@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import TrackerContainer from './component/Tracker_container/Tracker_Conatiner';
 import MapContainer from './component/Map_container/Map_container';
+import {useDispatch,useSelector} from 'react-redux';
+import {getData} from './actions/getAllData'
 
 
 function App() {
+ const dispatch = useDispatch()
+ useEffect(() => {
+   dispatch(getData())
+ },[dispatch])
   return (
   <div style={{
     width : "100vw",

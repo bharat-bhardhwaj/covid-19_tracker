@@ -2,6 +2,7 @@ import React from 'react'
 import ChartContainer from './Chart_Container/ChartContainer';
 import TableContiner from './Table_Container/TableContainer';
 
+
 const Tracker_Conatiner = () => {
     return (
         <div style={{

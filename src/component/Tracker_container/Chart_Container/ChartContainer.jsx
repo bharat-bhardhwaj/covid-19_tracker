@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DonutChartContainer from './Donut_Chart_container/DonutChartContainer';
 import LineChart from './line_Chart_Container/LineChartContainer';
+import {useSelector,useDispatch} from 'react-redux';
+import {gettotalData,getLastsevenData} from '../../../actions/getAllData';
 
 const ChartContainer = () => {
+  
+    const dispatch = useDispatch();
+    useEffect(()=> {
+        dispatch(gettotalData())
+        dispatch(getLastsevenData())
+    },[dispatch])
+
+    const total= useSelector(state=> state.getAllDataReducer.casesTime)
+    const sevenData = useSelector(state=> state.getAllDataReducer.sevenData)
+    console.log(sevenData)
     return (
         <div style={{
             height:"250px",
@@ -15,8 +27,16 @@ const ChartContainer = () => {
             display:'flex',
 
         }}>
-            <DonutChartContainer/>
-            <LineChart/>
+            {
+                total &&
+                <DonutChartContainer confirmed={total.totalconfirmed} deceased={total.totaldeceased} recovered={total.totalrecovered}/>
+            }
+         
+         {
+             sevenData && 
+             <LineChart sevenData={sevenData}/>
+         }
+        
         </div>
     )
 }

@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import {useSelector} from 'react-redux';
 import './table.css'
+import TableItems from './TableItems';
+
 const TableContainer = () => {
+
+  const statesData = useSelector((state) => state.getAllDataReducer.statewise)
+  
   return (
     <div
       style={{
@@ -10,10 +16,11 @@ const TableContainer = () => {
         boxShadow: '0 5px 13px rgba(0,0,0,.1)',
         borderRadius: '8px',
         display:'flex',
-        justifyContent:'center'
+        padding:'10px',
+        justifyContent:'center',
       }}
     >
-      <table class='styled-table'>
+      <table className='styled-table'>
         <thead>
           <tr>
             <th>STATE</th>
@@ -23,42 +30,20 @@ const TableContainer = () => {
             <th>DECEASED</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Maharashtra</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-          </tr>
-          <tr>
-            <td>Maharashtra</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-          </tr>
-          <tr>
-            <td>Maharashtra</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-          </tr>
-          <tr>
-            <td>Maharashtra</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-          </tr>
-          <tr>
-            <td>Maharashtra</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-            <td>654654</td>
-          </tr>
+        <tbody >
+
+          {
+            statesData?.map((ele,index) => {
+              return (
+    
+              <TableItems state={ele.state} confirmed={ele.confirmed} active={ele.active} recovered={ele.recovered} death={ele.deaths} key ={index} />
+
+              )
+            })
+          }
+        
+        
+        
           {/* <tr class='active-row'>
             <td>Melissa</td>
             <td>5150</td>

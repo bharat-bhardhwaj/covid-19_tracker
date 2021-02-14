@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BoxContainer = () => {
+const BoxContainer = ({confirmed,deceased,recovered}) => {
   return (
     <div
       style={{
@@ -37,12 +37,12 @@ const BoxContainer = () => {
             color: 'red',
           }}
         >
-          445454
+          {confirmed}
         </h6>
       </div>
       <div
         style={{
-          background: 'pink',
+          background: 'lightgrey',
           borderRadius: '9px',
           opacity: '.4',
           padding: '0 30px 0 30px',
@@ -54,25 +54,25 @@ const BoxContainer = () => {
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'darkgrey',
           }}
         >
-          confirmed
+          deceased
         </h5>
         <h6
           style={{
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'darkgrey',
           }}
         >
-          445454
+          {deceased}
         </h6>
       </div>
       <div
         style={{
-          background: 'pink',
+          background: 'lightgreen',
           borderRadius: '9px',
           opacity: '.4',
           padding: '0 30px 0 30px',
@@ -84,25 +84,25 @@ const BoxContainer = () => {
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'green',
           }}
         >
-          confirmed
+          recovered
         </h5>
         <h6
           style={{
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'green',
           }}
         >
-          445454
+          {recovered}
         </h6>
       </div>
       <div
         style={{
-          background: 'pink',
+          background: 'lightblue',
           borderRadius: '9px',
           opacity: '.4',
           padding: '0 30px 0 30px',
@@ -114,20 +114,20 @@ const BoxContainer = () => {
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'blue',
           }}
         >
-          confirmed
+          active
         </h5>
         <h6
           style={{
             fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            color: 'red',
+            color: 'blue',
           }}
         >
-          445454
+          {Number(confirmed) -(Number(deceased) + Number(recovered))}
         </h6>
       </div>
     </div>

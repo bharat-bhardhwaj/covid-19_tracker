@@ -1,36 +1,26 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import './table.css'
+// import './table.css'
 import TableItems from './TableItems';
-
+import {Container,Table,TableBody,TableHeadRow,Tableheading} from './TableContainerStyles';
 const TableContainer = () => {
 
   const statesData = useSelector((state) => state.getAllDataReducer.statewise)
   
   return (
-    <div
-      style={{
-        height: '600px',
-        width: '100%',
-        background: '#fff',
-        boxShadow: '0 5px 13px rgba(0,0,0,.1)',
-        borderRadius: '8px',
-        display:'flex',
-        padding:'10px',
-        justifyContent:'center',
-      }}
+    <Container
     >
-      <table className='styled-table'>
+      <Table>
         <thead>
-          <tr>
-            <th>STATE</th>
-            <th>CONFIRMED</th>
-            <th>ACTIVE</th>
-            <th>RECOVERED</th>
-            <th>DECEASED</th>
-          </tr>
+          <TableHeadRow>
+            <Tableheading>STATE</Tableheading>
+            <Tableheading>CONFIRMED</Tableheading>
+            <Tableheading>ACTIVE</Tableheading>
+            <Tableheading>RECOVERED</Tableheading>
+            <Tableheading>DECEASED</Tableheading>
+          </TableHeadRow>
         </thead>
-        <tbody >
+        <TableBody>
 
           {
             statesData?.map((ele,index) => {
@@ -48,9 +38,9 @@ const TableContainer = () => {
             <td>Melissa</td>
             <td>5150</td>
           </tr> */}
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </Container>
   )
 }
 

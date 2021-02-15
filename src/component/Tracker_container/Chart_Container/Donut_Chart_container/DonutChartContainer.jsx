@@ -38,8 +38,10 @@ const DonutChartContainer = ({confirmed,deceased,recovered}) => {
         textY = height / 2
       
 
+
+        ctx.clearRect(textX-12,textY-8,87,60)
         
-      ctx.clearRect(100+10,100+13,85,76)
+      // ctx.clearRect(100+10,100+13,85,76)
       ctx.fillStyle ='#000000'
       ctx.fillText(text, textX, textY)
       ctx.fillText('confirmed',textX-4,textY+40)

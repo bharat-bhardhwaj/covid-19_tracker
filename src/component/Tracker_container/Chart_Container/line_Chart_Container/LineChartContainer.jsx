@@ -12,8 +12,7 @@ const LineChartContainer = ({sevenData,lineChartData}) => {
       confirmed.push(ele.dailyconfirmed)
       deceased.push(ele.dailydeceased)
       recovered.push(ele.dailyrecovered)
-    })
-  }
+    })}
     else{
       confirmed = lineChartData.confirmed
       deceased = lineChartData.deceased

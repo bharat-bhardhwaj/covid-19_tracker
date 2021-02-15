@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react'
+import {TableBodyRow,TableData} from './TableContainerStyles'
 import {useDispatch} from 'react-redux';
 import { updatestateData,DeleteStateData ,lineChartData,DeleteLineData} from '../../../actions/getStateData';
 
@@ -16,13 +17,13 @@ const TableItems = ({state,confirmed,active,recovered,death,stateCode}) => {
     }
     return (
         <Fragment>
-                <tr onMouseOver={onMouseover} onMouseLeave={onMouseleave}>
-                 <td>{state}</td>
-                <td>{confirmed}</td>
-               <td>{active}</td>
-               <td>{recovered}</td>
-               <td>{death}</td>
-             </tr>
+                <TableBodyRow onMouseOver={onMouseover} onMouseLeave={onMouseleave}>
+                 <TableData>{state}</TableData>
+                <TableData>{confirmed}</TableData>
+               <TableData>{active}</TableData>
+               <TableData>{recovered}</TableData>
+               <TableData>{death}</TableData>
+             </TableBodyRow>
         </Fragment>
     )
 }

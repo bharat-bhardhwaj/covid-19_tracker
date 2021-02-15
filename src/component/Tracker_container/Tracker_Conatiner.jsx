@@ -7,7 +7,7 @@ const Tracker_Conatiner = () => {
     return (
         <div style={{
             height:"100%",
-            width:"48%",
+            maxWidth:'800px',
             display:"flex",
             flexDirection:"column",
             padding:"10px",

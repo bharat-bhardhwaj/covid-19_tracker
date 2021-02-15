@@ -1,10 +1,9 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import Chart from 'chart.js'
 
 const DonutChartContainer = ({confirmed,deceased,recovered}) => {
   const active = Number(confirmed) -(Number(deceased) + Number(recovered))
-  
   const data = {
     labels: ['active', 'recovered', 'deceased'],
     datasets: [
@@ -12,7 +11,7 @@ const DonutChartContainer = ({confirmed,deceased,recovered}) => {
        
         data:[active,recovered, deceased],
         backgroundColor: ['blue', 'green', 'grey'],
-        hoverBackgroundColor: ['lightblue', 'lightgreen', '#darkgrey'],
+        hoverBackgroundColor: ['lightblue', 'lightgreen', 'darkgrey'],
       },
     ],
   }
@@ -30,15 +29,22 @@ const DonutChartContainer = ({confirmed,deceased,recovered}) => {
       var height = chart.height
 
       // var fontSize = (height / 114).toFixed(2)
-      ctx.font = 1.5+ 'em Verdana'
+   
+      ctx.font = 1.2+ 'em Verdana'
       ctx.textBaseline = 'middle'
-
+      
       var text = confirmed,
         textX = Math.round((width - ctx.measureText(text).width) / 2),
         textY = height / 2
+      
 
+        
+      ctx.clearRect(100+10,100+13,85,76)
+      ctx.fillStyle ='#000000'
       ctx.fillText(text, textX, textY)
-      ctx.fillText('confirmed',textX,textY+40)
+      ctx.fillText('confirmed',textX-4,textY+40)
+ 
+      ctx.save()
     },
   })
   return (

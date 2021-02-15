@@ -3,16 +3,24 @@ import { Line } from "react-chartjs-2";
 
 
 
-const LineChartContainer = ({sevenData}) => {
+const LineChartContainer = ({sevenData,lineChartData}) => {
   let confirmed=[]  
   let deceased =[]
   let recovered =[]
-  sevenData?.forEach((ele) => {
-    confirmed.push(ele.dailyconfirmed)
-    deceased.push(ele.dailydeceased)
-    recovered.push(ele.dailyrecovered)
-  })
-  const data = {
+  if(!lineChartData){
+    sevenData?.forEach((ele) => {
+      confirmed.push(ele.dailyconfirmed)
+      deceased.push(ele.dailydeceased)
+      recovered.push(ele.dailyrecovered)
+    })
+  }
+    else{
+      confirmed = lineChartData.confirmed
+      deceased = lineChartData.deceased
+      recovered = lineChartData.recovered
+    }
+ 
+ const data = {
     labels: ["1day", "2day", "3day", "4day", "5day", "6day","7day"],
     datasets: [
       {

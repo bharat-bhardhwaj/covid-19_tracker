@@ -1,9 +1,22 @@
 import React,{Fragment} from 'react'
+import {useDispatch} from 'react-redux';
+import { updatestateData,DeleteStateData ,lineChartData,DeleteLineData} from '../../../actions/getStateData';
 
-const TableItems = ({state,confirmed,active,recovered,death}) => {
+const TableItems = ({state,confirmed,active,recovered,death,stateCode}) => {
+    const dispatch = useDispatch();
+    const onMouseover =() => {
+        dispatch(lineChartData(stateCode.toLowerCase()))
+        dispatch(updatestateData(state,confirmed,recovered,death))
+    }
+
+    const onMouseleave = () => {
+
+        dispatch(DeleteLineData())
+        dispatch(DeleteStateData())
+    }
     return (
         <Fragment>
-                <tr>
+                <tr onMouseOver={onMouseover} onMouseLeave={onMouseleave}>
                  <td>{state}</td>
                 <td>{confirmed}</td>
                <td>{active}</td>

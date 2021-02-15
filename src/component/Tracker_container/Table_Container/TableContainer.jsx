@@ -36,7 +36,7 @@ const TableContainer = () => {
             statesData?.map((ele,index) => {
               return (
     
-              <TableItems state={ele.state} confirmed={ele.confirmed} active={ele.active} recovered={ele.recovered} death={ele.deaths} key ={index} />
+              <TableItems state={ele.state} confirmed={ele.confirmed} active={ele.active} recovered={ele.recovered} death={ele.deaths} key ={index} stateCode={ele.statecode} />
 
               )
             })

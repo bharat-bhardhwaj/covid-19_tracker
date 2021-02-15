@@ -7,7 +7,8 @@ const BoxContainer = ({confirmed,deceased,recovered}) => {
         display:'flex',
         justifyContent:"space-evenly",
         width: '100%',
-        padding: '20px',
+        // padding: '20px',
+        paddingTop:'20px'
       }}
     >
       <div

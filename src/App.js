@@ -3,12 +3,14 @@ import TrackerContainer from './component/Tracker_container/Tracker_Conatiner';
 import MapContainer from './component/Map_container/Map_container';
 import {useDispatch,useSelector} from 'react-redux';
 import {getData} from './actions/getAllData'
+import {getLastStatesevenData} from './actions/getStateData';
 
 
 function App() {
  const dispatch = useDispatch()
  useEffect(() => {
    dispatch(getData())
+   dispatch(getLastStatesevenData())
  },[dispatch])
   return (
   <div style={{
@@ -37,10 +39,10 @@ function App() {
     <div style={{
     
     display:"flex",
-    justifyContent:"space-between",
-    width:"100%",
-    height:"100%",
-    padding:"30px",
+    justifyContent:"space-evenly",
+    width:"100vw",
+    height:"100vh",
+  
      
 
       
